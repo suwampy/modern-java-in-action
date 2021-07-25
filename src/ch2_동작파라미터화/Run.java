@@ -44,7 +44,7 @@ public class Run {
         return result;
     }
 
-    static <T> List<T> filter(List<T> list, Predicate<T>p) {
+    static <T> List<T> filter(List<T> list, Predicate<T> p) {
         List<T> result = new ArrayList<>();
         for(T e : list){
             if(p.test(e)) {
