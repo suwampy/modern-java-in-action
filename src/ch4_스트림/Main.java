@@ -1,13 +1,33 @@
 package ch4_스트림;
 
 import java.util.*;
+import java.util.stream.IntStream;
+import java.util.stream.Stream;
 
 import static ch4_스트림.Dish.menu;
 import static java.util.Comparator.comparing;
 import static java.util.stream.Collectors.toList;
 
-public class Stream {
+public class Main {
     public static void main(String[] args) {
+        List<Dish> list = Arrays.asList(
+                new Dish("pork", false, 800, Dish.Type.MEAT),
+                new Dish("fork", false, 900, Dish.Type.MEAT)
+        );
+
+//        Stream<Dish> stream = list.stream();
+//        stream.forEach(s-> {
+//            String name = s.getName();
+//            int calories = s.getCalories();
+//            System.out.println(name + "-" + calories);
+//        });
+        Double avg = list.stream().mapToInt(Dish::getCalories)
+                .average()
+                .getAsDouble();
+
+        System.out.println("avg : " + avg);
+
+
 
     }
 
